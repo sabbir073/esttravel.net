@@ -56,7 +56,7 @@ export function HeroSection() {
               height={30}
               className="inline-block align-middle"
             />{" "}
-            <span className="text-primary">and Africa</span>
+            <span className="text-gold">and Africa</span>
           </motion.h1>
 
           {/* Subheading */}
