@@ -47,7 +47,7 @@ export function HeroSection() {
             className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight"
           >
             Book Cheap Flights to{" "}
-            <span className="text-green-500">Nigeria</span>{" "}
+            <span className="text-primary">Nigeria</span>{" "}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://flagcdn.com/w40/ng.png"

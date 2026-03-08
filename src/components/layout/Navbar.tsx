@@ -294,7 +294,7 @@ export function Navbar() {
               </a>
               <Link
                 href="/booking/"
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+                className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
               >
                 Book Now
               </Link>
