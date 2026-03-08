@@ -132,6 +132,7 @@ export default function NigeriaEVisaPage() {
       <PageHero
         title="E-Visa to Nigeria"
         subtitle="Complete assistance for your Nigerian e-visa application — tourist, business, and transit visas"
+        backgroundImage="/images/e-visa.png"
         breadcrumbs={[
           { label: "Services", href: "/services/" },
           { label: "E-Visa to Nigeria" },
