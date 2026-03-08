@@ -38,7 +38,7 @@ const services = [
   { label: "Nigerian Visa", href: "/nigerian-visa/" },
   { label: "Hotel & Packages", href: "/hotel-packages/" },
   { label: "Safari Packages", href: "/safari-packages-html/" },
-  { label: "Indian Tourist Visa", href: "/apply-indian-tourist-visa/" },
+  { label: "E-Visa to Nigeria", href: "/nigeria-e-visa/" },
 ];
 
 const socialLinks = [

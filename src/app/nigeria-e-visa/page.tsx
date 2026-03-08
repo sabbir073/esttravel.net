@@ -14,30 +14,31 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Indian Tourist Visa Guide - How to Apply from Houston TX",
+  title: "E-Visa to Nigeria - Nigerian E-Visa Application Assistance | EST Travel Houston",
   description:
-    "Complete guide to applying for an Indian tourist visa from Houston. EST International Travel assists with passport requirements, application forms, photographs, and all documentation needed.",
+    "Apply for your Nigerian e-visa with expert assistance from EST International Travel, Houston TX. We help with tourist, business, and transit e-visa applications to Nigeria.",
   keywords: [
-    "indian tourist visa houston",
-    "apply indian visa houston",
-    "indian visa application guide",
-    "indian business visa houston",
+    "nigeria e-visa",
+    "nigerian e-visa application",
+    "e-visa to nigeria houston",
+    "nigeria visa online",
+    "nigerian electronic visa",
   ],
   alternates: {
-    canonical: `${siteConfig.url}/apply-indian-tourist-visa/`,
+    canonical: `${siteConfig.url}/nigeria-e-visa/`,
   },
   openGraph: {
-    title: "Indian Tourist Visa Guide | EST International Travel Houston",
+    title: "E-Visa to Nigeria | EST International Travel Houston",
     description:
-      "Complete guide to applying for an Indian tourist visa from Houston, TX.",
-    url: `${siteConfig.url}/apply-indian-tourist-visa/`,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Indian Tourist Visa Guide" }],
+      "Apply for your Nigerian e-visa with expert assistance from EST International Travel, Houston TX.",
+    url: `${siteConfig.url}/nigeria-e-visa/`,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Nigerian E-Visa Application Assistance" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indian Tourist Visa Guide | EST International Travel",
+    title: "E-Visa to Nigeria | EST International Travel",
     description:
-      "Complete guide to applying for an Indian tourist visa from Houston, TX.",
+      "Apply for your Nigerian e-visa with expert assistance from EST International Travel, Houston TX.",
     images: [siteConfig.ogImage],
   },
 };
@@ -47,61 +48,58 @@ const requirements = [
     icon: BookOpen,
     title: "1. Valid Passport",
     items: [
-      "Original passport document required",
-      "One photocopy of passport information page",
-      "Must be signed by applicant",
-      "Valid for minimum six months during India stay",
+      "Original passport valid for at least six months from date of arrival in Nigeria",
       "At least two blank pages available for visa stamps",
+      "Clear scan/photo of the passport bio-data page",
     ],
   },
   {
     icon: FileText,
-    title: "2. Visa Application Form",
+    title: "2. E-Visa Application Form",
     items: [
-      "Complete the online application with a valid email address (mandatory)",
+      "Complete the online Nigerian e-visa application",
       "Name must exactly match your passport",
-      "Select the correct visa type",
-      "Signature under all photographs must match passport signature",
+      "Provide a valid email address for e-visa delivery",
+      "Select the correct visa category (tourist, business, or transit)",
     ],
   },
   {
     icon: Camera,
-    title: "3. Passport Photographs",
+    title: "3. Passport Photograph",
     items: [
-      "Recent 2x2 inch colored passport-style photo",
-      "Plain background required",
-      "No glasses in photographs",
-      "Do not staple photos to application",
+      "Recent passport-sized photograph with white background",
+      "Digital format (JPEG/PNG) for online submission",
+      "Face must be clearly visible without glasses",
     ],
   },
   {
     icon: MapPin,
-    title: "4. Proof of State Residency",
+    title: "4. Travel Details",
     items: [
-      "Photocopy of driver's license or state-issued ID",
-      "Address must match visa application",
-      "Alternative: utility bills (water, gas, electric, sewage) from last 90 days",
+      "Confirmed return flight ticket or itinerary",
+      "Hotel reservation or host address in Nigeria",
+      "Proof of sufficient funds for your stay",
     ],
   },
   {
     icon: FileText,
     title: "5. Additional Documents",
     items: [
-      "All forms must be printed, completed, and signed with original signature",
-      "Business visa applicants need a letter from the Indian business partner",
-      "Letter must describe business nature, stay duration, locations, and cost responsibility",
+      "Invitation letter for business visa applicants",
+      "Yellow fever vaccination certificate",
+      "Travel insurance covering your stay in Nigeria",
     ],
   },
 ];
 
-export default function IndianVisaPage() {
+export default function NigeriaEVisaPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "How to Apply for an Indian Tourist Visa from Houston",
+    name: "How to Apply for a Nigerian E-Visa",
     description:
-      "Step-by-step guide to applying for an Indian tourist visa with EST International Travel's assistance.",
-    url: `${siteConfig.url}/apply-indian-tourist-visa/`,
+      "Step-by-step guide to applying for a Nigerian e-visa with EST International Travel's assistance.",
+    url: `${siteConfig.url}/nigeria-e-visa/`,
     step: requirements.map((req, index) => ({
       "@type": "HowToStep",
       position: index + 1,
@@ -116,7 +114,7 @@ export default function IndianVisaPage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
       { "@type": "ListItem", position: 2, name: "Services", item: `${siteConfig.url}/services/` },
-      { "@type": "ListItem", position: 3, name: "Indian Tourist Visa", item: `${siteConfig.url}/apply-indian-tourist-visa/` },
+      { "@type": "ListItem", position: 3, name: "E-Visa to Nigeria", item: `${siteConfig.url}/nigeria-e-visa/` },
     ],
   };
 
@@ -132,11 +130,11 @@ export default function IndianVisaPage() {
       />
 
       <PageHero
-        title="Indian Tourist Visa Guide"
-        subtitle="Complete guide and expert assistance for applying for an Indian tourist or business visa from Houston"
+        title="E-Visa to Nigeria"
+        subtitle="Complete assistance for your Nigerian e-visa application — tourist, business, and transit visas"
         breadcrumbs={[
           { label: "Services", href: "/services/" },
-          { label: "Indian Tourist Visa" },
+          { label: "E-Visa to Nigeria" },
         ]}
       />
 
@@ -145,14 +143,15 @@ export default function IndianVisaPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-heading font-bold text-text mb-5">
-              Apply for Your Indian Tourist Visa with Expert Assistance
+              Apply for Your Nigerian E-Visa with Expert Assistance
             </h2>
             <p className="text-text-secondary leading-relaxed">
-              India welcomed over one million U.S. visitors in 2018, and that
-              number continues to grow. American citizens require valid passports
-              and visas for entry into India. EST International Travel offers
-              complete assistance with your Indian visa application from
-              Houston, TX — ensuring every document is prepared correctly.
+              Nigeria now offers an electronic visa (e-visa) system that allows
+              travelers to apply online without visiting an embassy. The Nigerian
+              e-visa is available for tourist, business, and transit purposes.
+              EST International Travel provides complete assistance with your
+              Nigerian e-visa application from Houston, TX — ensuring every
+              document is prepared correctly for a smooth approval.
             </p>
           </div>
         </div>
@@ -166,7 +165,7 @@ export default function IndianVisaPage() {
               Requirements Checklist
             </span>
             <h2 className="text-3xl font-heading font-bold text-text">
-              What You Need for Your Indian Visa
+              What You Need for Your Nigerian E-Visa
             </h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -209,15 +208,16 @@ export default function IndianVisaPage() {
               <AlertCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-heading font-bold text-text text-lg mb-2">
-                  Business Visa Information
+                  Business E-Visa Information
                 </h3>
                 <p className="text-text-secondary leading-relaxed">
-                  Business visas allow investigation of business opportunities
-                  without employment in India. Applicants need a letter from the
-                  Indian business partner describing the business nature, stay
-                  duration, locations to be visited, and who is responsible for
-                  costs. EST Travel can guide you through the entire business
-                  visa process.
+                  The Nigerian business e-visa is ideal for those attending
+                  meetings, conferences, or exploring business opportunities in
+                  Nigeria. Applicants need an invitation letter from a Nigerian
+                  business partner or organization describing the purpose of the
+                  visit, duration of stay, and who is responsible for costs. EST
+                  Travel can guide you through the entire business e-visa
+                  process.
                 </p>
               </div>
             </div>
@@ -229,12 +229,12 @@ export default function IndianVisaPage() {
       <section className="py-16 bg-dark">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
-            Need Help with Your Indian Visa Application?
+            Need Help with Your Nigerian E-Visa Application?
           </h2>
           <p className="text-gray-400 mb-8 max-w-xl mx-auto">
             Let EST International Travel handle the paperwork. We assist
-            Houston residents with both tourist and business visa applications
-            to India.
+            Houston residents and travelers across the USA with Nigerian e-visa
+            applications — tourist, business, and transit.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
