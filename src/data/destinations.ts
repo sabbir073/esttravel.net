@@ -24,7 +24,7 @@ export const destinations: Destination[] = [
     tagline: "Africa's Most Vibrant City",
     description:
       "Lagos is the largest state in Nigeria and the sixth-largest city in the world by population. This historical city is famous for its beaches, resorts, nightlife, boutiques, art venues, museums, and a coastline of dramatic natural scenery. Lagos today has become one of Africa's most beautiful holiday destinations due to its historical sites and beautiful beaches.",
-    image: "/images/lagos.png",
+    image: "/images/lagos2.png",
     flightDuration: "13 hours 33 minutes from Houston",
     attractions: [
       "National Theatre",
