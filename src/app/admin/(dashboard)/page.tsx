@@ -15,9 +15,16 @@ import { format } from "date-fns";
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
-  const stats = await getPostStats();
-  const categories = await getAllCategories();
-  const recentPosts = await getRecentPublishedPosts(5);
+  let stats, categories, recentPosts;
+  try {
+    stats = await getPostStats();
+    categories = await getAllCategories();
+    recentPosts = await getRecentPublishedPosts(5);
+  } catch {
+    stats = { total: 0, published: 0, drafts: 0 };
+    categories = [];
+    recentPosts = [];
+  }
 
   const statCards = [
     {

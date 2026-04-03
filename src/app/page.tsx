@@ -64,7 +64,12 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const recentPosts = await getRecentPublishedPosts(3);
+  let recentPosts;
+  try {
+    recentPosts = await getRecentPublishedPosts(3);
+  } catch {
+    recentPosts = [];
+  }
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",

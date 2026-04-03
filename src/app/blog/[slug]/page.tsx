@@ -16,7 +16,12 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  let post;
+  try {
+    post = await getPostBySlug(slug);
+  } catch {
+    return { title: "Post Not Found" };
+  }
   if (!post) return { title: "Post Not Found" };
 
   const title = post.meta_title || post.title;
@@ -53,11 +58,22 @@ export const dynamic = "force-dynamic";
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+
+  let post;
+  try {
+    post = await getPostBySlug(slug);
+  } catch {
+    return notFound();
+  }
   if (!post) return notFound();
 
-  const categoryIds = post.categories.map((c) => c.id);
-  const related = await getRelatedPosts(post.id, categoryIds, 3);
+  let related;
+  try {
+    const categoryIds = post.categories.map((c) => c.id);
+    related = await getRelatedPosts(post.id, categoryIds, 3);
+  } catch {
+    related = [];
+  }
 
   const dateStr = post.published_at
     ? format(new Date(post.published_at), "MMMM d, yyyy")

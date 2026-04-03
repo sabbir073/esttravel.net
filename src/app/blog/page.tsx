@@ -53,11 +53,15 @@ export default async function BlogPage({
   const page = Math.max(1, parseInt(params.page || "1"));
   const categorySlug = params.category;
 
-  const { posts, totalPages } = await getPublishedPosts(
-    page,
-    12,
-    categorySlug
-  );
+  let posts, totalPages;
+  try {
+    const result = await getPublishedPosts(page, 12, categorySlug);
+    posts = result.posts;
+    totalPages = result.totalPages;
+  } catch {
+    posts = [];
+    totalPages = 0;
+  }
 
   const schema = {
     "@context": "https://schema.org",

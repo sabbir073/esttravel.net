@@ -13,9 +13,10 @@ export const pool =
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 5,
     queueLimit: 0,
     charset: "utf8mb4",
+    connectTimeout: 10000,
   });
 
 if (process.env.NODE_ENV !== "production") {
