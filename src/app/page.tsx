@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { BlogPreview } from "@/components/home/BlogPreview";
 import { CTABanner } from "@/components/home/CTABanner";
 import { siteConfig } from "@/data/siteConfig";
+import { getRecentPublishedPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title:
@@ -60,7 +61,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const recentPosts = await getRecentPublishedPosts(3);
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -110,7 +114,7 @@ export default function HomePage() {
       <ServicesShowcase />
       <WhyChooseUs />
       <TestimonialsSection />
-      <BlogPreview />
+      <BlogPreview posts={recentPosts} />
       <CTABanner />
     </>
   );

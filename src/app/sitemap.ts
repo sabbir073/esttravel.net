@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { destinations } from "@/data/destinations";
+import { getAllPublishedSlugs } from "@/lib/posts";
 
 const BASE_URL = "https://www.esttravel.net";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   // Static pages
@@ -96,5 +97,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: dest.country === "Nigeria" ? 0.9 : 0.8,
   }));
 
-  return [...staticPages, ...destinationPages];
+  // Blog post pages
+  let blogPages: MetadataRoute.Sitemap = [];
+  try {
+    const slugs = await getAllPublishedSlugs();
+    blogPages = slugs.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}/`,
+      lastModified: post.updated_at,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
+  } catch {
+    // DB might not be available during build
+  }
+
+  return [...staticPages, ...destinationPages, ...blogPages];
 }
