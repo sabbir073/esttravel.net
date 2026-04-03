@@ -9,6 +9,7 @@ import { BlogPreview } from "@/components/home/BlogPreview";
 import { CTABanner } from "@/components/home/CTABanner";
 import { siteConfig } from "@/data/siteConfig";
 import { getRecentPublishedPosts } from "@/lib/posts";
+import type { BlogPost } from "@/lib/types";
 
 export const metadata: Metadata = {
   title:
@@ -64,11 +65,11 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  let recentPosts;
+  let recentPosts: BlogPost[] = [];
   try {
     recentPosts = await getRecentPublishedPosts(3);
   } catch {
-    recentPosts = [];
+    // DB unavailable, show empty
   }
   const webPageSchema = {
     "@context": "https://schema.org",
