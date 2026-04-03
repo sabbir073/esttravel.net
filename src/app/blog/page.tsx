@@ -53,14 +53,14 @@ export default async function BlogPage({
   const page = Math.max(1, parseInt(params.page || "1"));
   const categorySlug = params.category;
 
-  let posts, totalPages;
+  let posts: import("@/lib/types").BlogPost[] = [];
+  let totalPages = 0;
   try {
     const result = await getPublishedPosts(page, 12, categorySlug);
     posts = result.posts;
     totalPages = result.totalPages;
   } catch {
-    posts = [];
-    totalPages = 0;
+    // DB unavailable
   }
 
   const schema = {

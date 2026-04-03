@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { getPostStats } from "@/lib/posts";
+import { getPostStats, getRecentPublishedPosts } from "@/lib/posts";
 import { getAllCategories } from "@/lib/categories";
-import { getRecentPublishedPosts } from "@/lib/posts";
+import type { BlogPost, Category } from "@/lib/types";
 import {
   FileText,
   CheckCircle,
@@ -15,15 +15,15 @@ import { format } from "date-fns";
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
-  let stats, categories, recentPosts;
+  let stats = { total: 0, published: 0, drafts: 0 };
+  let categories: Category[] = [];
+  let recentPosts: BlogPost[] = [];
   try {
     stats = await getPostStats();
     categories = await getAllCategories();
     recentPosts = await getRecentPublishedPosts(5);
   } catch {
-    stats = { total: 0, published: 0, drafts: 0 };
-    categories = [];
-    recentPosts = [];
+    // DB unavailable
   }
 
   const statCards = [

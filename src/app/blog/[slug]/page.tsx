@@ -67,12 +67,12 @@ export default async function BlogPostPage({ params }: Props) {
   }
   if (!post) return notFound();
 
-  let related;
+  let related: import("@/lib/types").BlogPost[] = [];
   try {
     const categoryIds = post.categories.map((c) => c.id);
     related = await getRelatedPosts(post.id, categoryIds, 3);
   } catch {
-    related = [];
+    // DB unavailable
   }
 
   const dateStr = post.published_at
