@@ -3,14 +3,10 @@ import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { pool } from "./db";
 import type { RowDataPacket } from "mysql2";
+import { authConfig } from "./auth.config";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  pages: {
-    signIn: "/admin/login",
-  },
-  session: {
-    strategy: "jwt",
-  },
+  ...authConfig,
   providers: [
     Credentials({
       name: "credentials",
@@ -61,24 +57,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             email: user.email,
           };
         } catch {
-          // If DB is not available, only env auth works
           return null;
         }
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id as string;
-      }
-      return session;
-    },
-  },
 });
