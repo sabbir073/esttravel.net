@@ -32,6 +32,7 @@ const topDestinations = [
   { label: "Nairobi, Kenya", href: "/cheap-flights-to-nairobi/" },
   { label: "Johannesburg, SA", href: "/cheap-flights-to-johannesburg/" },
   { label: "Dakar, Senegal", href: "/cheap-flights-to-dakar/" },
+  { label: "Central America & Mexico", href: "/cheap-flights-to-central-america/" },
 ];
 
 const services = [

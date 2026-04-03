@@ -260,7 +260,14 @@ export function Navbar() {
                             </div>
                           ))}
                         </div>
-                        <div className="mt-5 pt-4 border-t border-gray-100">
+                        <div className="mt-5 pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                          <Link
+                            href="/cheap-flights-to-central-america/"
+                            className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
+                          >
+                            <Plane className="w-4 h-4" />
+                            Cheap Flights to Central America &amp; Mexico
+                          </Link>
                           <Link
                             href="/safari-packages-html/"
                             className="flex items-center gap-2 text-sm font-semibold text-secondary hover:text-secondary-light transition-colors"
@@ -343,6 +350,16 @@ export function Navbar() {
                               {item.label}
                             </Link>
                           ))}
+                          {link.megaMenu && (
+                            <Link
+                              href="/cheap-flights-to-central-america/"
+                              onClick={() => setMobileOpen(false)}
+                              className="flex items-center gap-2 p-2.5 rounded-lg text-sm font-semibold text-primary hover:bg-cream transition-colors"
+                            >
+                              <Plane className="w-3 h-3" />
+                              Central America &amp; Mexico
+                            </Link>
+                          )}
                           {link.megaMenu &&
                             destinations.map((dest) => (
                               <Link

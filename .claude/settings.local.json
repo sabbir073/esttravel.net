@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:www.esttravel.net)",
       "Bash(curl -sL -o \"est-logo.png\" \"https://www.esttravel.net/wp-content/uploads/2021/06/Est-Logo-Adjust-Size.png\")",
-      "Bash(curl -sL -o \"big-logo.png\" \"https://www.esttravel.net/wp-content/themes/trydo/assets/images/logo/big-logo.png\")"
+      "Bash(curl -sL -o \"big-logo.png\" \"https://www.esttravel.net/wp-content/themes/trydo/assets/images/logo/big-logo.png\")",
+      "Bash(npx next:*)"
     ]
   }
 }
