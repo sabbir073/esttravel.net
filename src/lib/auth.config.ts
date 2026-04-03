@@ -1,10 +1,6 @@
 import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-// Edge-compatible auth config — NO bcryptjs, NO mysql2
-// Only env-based auth works in middleware (Edge runtime)
-// Full DB auth is handled in auth.ts (Node.js runtime)
-
 export const authConfig: NextAuthConfig = {
   pages: {
     signIn: "/admin/login",
@@ -19,8 +15,6 @@ export const authConfig: NextAuthConfig = {
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      // Authorize is overridden in auth.ts for full functionality
-      // This is just a placeholder so the provider config is valid
       async authorize() {
         return null;
       },
@@ -42,17 +36,33 @@ export const authConfig: NextAuthConfig = {
     async authorized({ auth, request }) {
       const pathname = request.nextUrl.pathname;
       const isLoggedIn = !!auth?.user;
-      const isAdminRoute = pathname.startsWith("/admin");
-      const isLoginPage =
-        pathname === "/admin/login" || pathname === "/admin/login/";
-      const isAdminApi = pathname.startsWith("/api/admin");
 
-      if (isLoginPage) {
-        if (isLoggedIn) return Response.redirect(new URL("/admin", request.url));
+      // Always allow auth API routes
+      if (pathname.startsWith("/api/auth")) {
         return true;
       }
 
-      if (isAdminRoute || isAdminApi) {
+      // Login page: allow unauthenticated, redirect authenticated to dashboard
+      if (pathname.startsWith("/admin/login")) {
+        if (isLoggedIn) {
+          return Response.redirect(new URL("/admin", request.nextUrl.origin));
+        }
+        return true;
+      }
+
+      // Admin API routes: require auth, return 401 if not
+      if (pathname.startsWith("/api/admin")) {
+        if (!isLoggedIn) {
+          return new Response(JSON.stringify({ error: "Unauthorized" }), {
+            status: 401,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
+        return true;
+      }
+
+      // Admin pages: require auth (NextAuth will redirect to signIn page)
+      if (pathname.startsWith("/admin")) {
         return isLoggedIn;
       }
 

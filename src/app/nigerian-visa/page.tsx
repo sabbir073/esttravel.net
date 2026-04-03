@@ -11,7 +11,6 @@ import {
   HardHat,
   Phone,
   ArrowRight,
-  CheckCircle,
   AlertTriangle,
 } from "lucide-react";
 

@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     const result = await uploadToFtp(buffer, file.name);
     return Response.json({ url: result.url, filename: result.filename });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Upload failed";
-    return Response.json({ error: message }, { status: 500 });
+    console.error("Upload failed:", err);
+    return Response.json({ error: "Upload failed. Please try again." }, { status: 500 });
   }
 }

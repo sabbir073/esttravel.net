@@ -28,7 +28,9 @@
       "Bash(cp -r posts \"\\(dashboard\\)/posts\")",
       "Bash(rm -rf posts)",
       "Bash(ls -laR \"c:/Users/Sabbir Ahmed/OneDrive/Desktop/sttravel/src/app/admin/\\(dashboard\\)/\")",
-      "Bash(curl -v -s -o /dev/null http://localhost:3000/admin/login)"
+      "Bash(curl -v -s -o /dev/null http://localhost:3000/admin/login)",
+      "Bash(npx eslint:*)",
+      "Bash(npx tsc:*)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Sabbir Ahmed\\OneDrive\\Desktop\\sttravel\\src\\app\\api\\auth",

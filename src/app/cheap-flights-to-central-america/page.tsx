@@ -15,8 +15,6 @@ import {
   Users,
   Tag,
   Plane,
-  Clock,
-  Compass,
 } from "lucide-react";
 
 export const metadata: Metadata = {

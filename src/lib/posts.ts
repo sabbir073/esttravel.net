@@ -50,12 +50,20 @@ async function getPostTags(postId: number): Promise<Tag[]> {
   return rows as Tag[];
 }
 
+const ALLOWED_JUNCTIONS: Record<string, string> = {
+  post_categories: "category_id",
+  post_tags: "tag_id",
+};
+
 async function syncJunction(
   table: string,
   postId: number,
   ids: number[],
   fkColumn: string
 ) {
+  if (!ALLOWED_JUNCTIONS[table] || ALLOWED_JUNCTIONS[table] !== fkColumn) {
+    throw new Error(`Invalid junction: ${table}.${fkColumn}`);
+  }
   await pool.execute(`DELETE FROM ${table} WHERE post_id = ?`, [postId]);
   for (const id of ids) {
     await pool.execute(
