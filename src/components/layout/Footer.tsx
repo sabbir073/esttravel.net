@@ -39,7 +39,7 @@ const services = [
   { label: "Nigerian Visa", href: "/nigerian-visa/" },
   { label: "Hotel & Packages", href: "/hotel-packages/" },
   { label: "Safari Packages", href: "/safari-packages-html/" },
-  { label: "Indian Tourist Visa", href: "/apply-indian-tourist-visa/" },
+  { label: "E-Visa to Nigeria", href: "/nigeria-e-visa/" },
 ];
 
 const socialLinks = [
@@ -52,6 +52,32 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-dark text-white">
+      {/* Disclaimer */}
+      <div className="bg-gray-100 border-t border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
+          <p className="text-gray-500 text-xs leading-relaxed">
+            Fares are subject to seat availability in the corresponding booking
+            inventory. Seats are limited and may not be available on all flights
+            and dates. Lowest fares are available from major US cities. The fares
+            are non-refundable, non-exchangeable, and non-transferable. The fares
+            and their governing rules are subject to change without prior notice.
+            Other restrictions may apply. Savings may vary based on availability,
+            advance purchase, minimum stay, travel dates, and blackout dates, and
+            may change without notice. Airline-imposed baggage fees are not
+            included and may apply. EST Int&apos;l Travel is not responsible for any
+            flight delay or change in any flight schedule. The ticket(s) are
+            completely non-refundable. In the event of making any changes, you
+            will have to pay a $350.00 penalty, along with any airline penalty,
+            and fare difference for the new dates. Full payment is mandatory
+            before making any changes. NO EXCEPTIONS. Est Int&apos;l Travel and its
+            affiliated companies are your guide to getting the right travel
+            documentation Incl Nigerian Visas and understanding up-to-date travel
+            requirements. An independent resource, we are not affiliated with or
+            funded by any government agency.
+          </p>
+        </div>
+      </div>
+
       {/* Newsletter / CTA strip */}
       <div className="bg-primary">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">

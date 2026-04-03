@@ -14,8 +14,8 @@ export function HeroSection() {
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/images/hero/hero-main.jpg)" }}
+        className="absolute inset-0 bg-cover bg-no-repeat bg-[center_top] md:bg-center"
+        style={{ backgroundImage: "url(/images/hero2.png)" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/70 to-dark/40" />
       </div>
@@ -47,9 +47,16 @@ export function HeroSection() {
             className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight"
           >
             Book Cheap Flights to{" "}
-            <span className="text-primary">
-              Nigeria 🇳🇬 and Africa
-            </span>
+            <span className="text-primary">Nigeria</span>{" "}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://flagcdn.com/w40/ng.png"
+              alt="Nigeria flag"
+              width={40}
+              height={30}
+              className="inline-block align-middle"
+            />{" "}
+            <span className="text-gold">and Africa</span>
           </motion.h1>
 
           {/* Subheading */}
@@ -60,8 +67,8 @@ export function HeroSection() {
             className="text-lg sm:text-xl text-gray-300 mt-6 max-w-2xl leading-relaxed"
           >
             Book cheap flights to Nigeria from USA — cheapest flight tickets to
-            Lagos, Abuja, Port Harcourt, Kano & all of Africa. Save hundreds
-            on every booking. Nigerian visa processing, safari packages & more.
+            Lagos, Abuja, Port Harcourt, Kano & anywhere in Africa. Save hundreds
+            on every booking. We also process Nigerian visa, safari packages & more.
           </motion.p>
 
           {/* Quick search form */}

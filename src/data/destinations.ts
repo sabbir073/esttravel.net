@@ -24,7 +24,7 @@ export const destinations: Destination[] = [
     tagline: "Africa's Most Vibrant City",
     description:
       "Lagos is the largest state in Nigeria and the sixth-largest city in the world by population. This historical city is famous for its beaches, resorts, nightlife, boutiques, art venues, museums, and a coastline of dramatic natural scenery. Lagos today has become one of Africa's most beautiful holiday destinations due to its historical sites and beautiful beaches.",
-    image: "/images/destinations/lagos.jpg",
+    image: "/images/lagos2.png",
     flightDuration: "13 hours 33 minutes from Houston",
     attractions: [
       "National Theatre",
@@ -169,7 +169,7 @@ export const destinations: Destination[] = [
     tagline: "Nigeria's Garden City",
     description:
       "Port Harcourt is a gulf city in Rivers State in Southeast Nigeria. EST Int'l Travel has daily connections to Port Harcourt. The city features a vibrant cultural scene, beautiful beaches, and lively markets offering everything from fresh seafood to local crafts.",
-    image: "/images/destinations/port-harcourt.jpg",
+    image: "/images/portharcourt.png",
     flightDuration: "14 hours from Houston",
     attractions: [
       "Port Harcourt Cultural Center",

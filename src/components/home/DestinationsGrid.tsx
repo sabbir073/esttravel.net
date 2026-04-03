@@ -32,7 +32,7 @@ export function DestinationsGrid() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl font-heading font-bold text-text"
           >
-            Book Cheap Flights to Nigeria &amp; All of Africa
+            Book Cheap Flights to Nigeria &amp; Anywhere in Africa
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

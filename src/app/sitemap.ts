@@ -75,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/apply-indian-tourist-visa/`,
+      url: `${BASE_URL}/nigeria-e-visa/`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,

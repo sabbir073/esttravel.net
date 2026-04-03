@@ -16,6 +16,10 @@ import {
   Hotel,
   TreePalm,
   FileText,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
 } from "lucide-react";
 
 const navLinks = [
@@ -56,10 +60,10 @@ const navLinks = [
         external: true,
       },
       {
-        label: "Indian Tourist Visa",
-        href: "/apply-indian-tourist-visa/",
+        label: "E-Visa to Nigeria",
+        href: "/nigeria-e-visa/",
         icon: FileText,
-        description: "Complete Indian visa application guide",
+        description: "Nigerian e-visa application assistance",
       },
     ],
   },
@@ -134,18 +138,21 @@ export function Navbar() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            {Object.entries(siteConfig.social).map(([platform, url]) => (
-              <a
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors capitalize"
-                aria-label={platform}
-              >
-                {platform}
-              </a>
-            ))}
+            {Object.entries(siteConfig.social).map(([platform, url]) => {
+              const Icon = { facebook: Facebook, twitter: Twitter, instagram: Instagram, linkedin: Linkedin }[platform];
+              return (
+                <a
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                  aria-label={platform}
+                >
+                  {Icon ? <Icon className="w-4 h-4" /> : platform}
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -183,7 +190,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${
+                    className={`px-4 py-2 rounded-lg text-base font-medium transition-colors flex items-center gap-1 ${
                       activeDropdown === link.label
                         ? "text-primary bg-primary/5"
                         : "text-text hover:text-primary"
@@ -220,10 +227,10 @@ export function Navbar() {
                                 <Icon className="w-4 h-4" />
                               </div>
                               <div>
-                                <div className="text-sm font-semibold text-text group-hover:text-primary transition-colors">
+                                <div className="text-base font-semibold text-text group-hover:text-primary transition-colors">
                                   {item.label}
                                 </div>
-                                <div className="text-xs text-text-secondary mt-0.5">
+                                <div className="text-sm text-text-secondary mt-0.5">
                                   {item.description}
                                 </div>
                               </div>
@@ -241,7 +248,7 @@ export function Navbar() {
                         <div className="grid grid-cols-3 gap-6">
                           {destinationRegions.map((region) => (
                             <div key={region.name}>
-                              <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-3">
+                              <h4 className="text-sm font-bold text-primary uppercase tracking-wider mb-3">
                                 {region.name}
                               </h4>
                               <ul className="space-y-1.5">
@@ -249,7 +256,7 @@ export function Navbar() {
                                   <li key={dest.slug}>
                                     <Link
                                       href={`/${dest.slug}/`}
-                                      className="flex items-center gap-2 text-sm text-text-secondary hover:text-primary transition-colors py-0.5"
+                                      className="flex items-center gap-2 text-base text-text-secondary hover:text-primary transition-colors py-0.5"
                                     >
                                       <Plane className="w-3 h-3" />
                                       {dest.city}
@@ -270,7 +277,7 @@ export function Navbar() {
                           </Link>
                           <Link
                             href="/safari-packages-html/"
-                            className="flex items-center gap-2 text-sm font-semibold text-secondary hover:text-secondary-light transition-colors"
+                            className="flex items-center gap-2 text-base font-semibold text-secondary hover:text-secondary-light transition-colors"
                           >
                             <TreePalm className="w-4 h-4" />
                             Safari Packages — Explore African Adventures
