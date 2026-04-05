@@ -34,7 +34,9 @@
     ],
     "additionalDirectories": [
       "c:\\Users\\Sabbir Ahmed\\OneDrive\\Desktop\\sttravel\\src\\app\\api\\auth",
-      "c:\\Users\\Sabbir Ahmed\\OneDrive\\Desktop\\sttravel\\src\\app\\admin\\posts\\[id]"
+      "c:\\Users\\Sabbir Ahmed\\OneDrive\\Desktop\\sttravel\\src\\app\\admin\\posts\\[id]",
+      "c:\\Users\\Sabbir Ahmed\\OneDrive\\Desktop\\sttravel\\src\\app\\api\\admin\\users",
+      "c:\\Users\\Sabbir Ahmed\\OneDrive\\Desktop\\sttravel\\src\\app\\admin\\(dashboard)\\users\\[id]"
     ]
   }
 }

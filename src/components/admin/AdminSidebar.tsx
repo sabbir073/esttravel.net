@@ -6,6 +6,7 @@ import {
   LayoutDashboard,
   FileText,
   PlusCircle,
+  Users,
   ExternalLink,
 } from "lucide-react";
 
@@ -13,6 +14,7 @@ const links = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/posts", label: "All Posts", icon: FileText },
   { href: "/admin/posts/new", label: "New Post", icon: PlusCircle },
+  { href: "/admin/users", label: "Users", icon: Users },
 ];
 
 export function AdminSidebar() {

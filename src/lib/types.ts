@@ -53,3 +53,13 @@ export interface CreatePostInput {
 }
 
 export type UpdatePostInput = Partial<CreatePostInput>;
+
+export interface AdminUser {
+  id: number;
+  username: string;
+  display_name: string;
+  email: string | null;
+  role: "admin" | "editor";
+  created_at: Date;
+  updated_at: Date;
+}
