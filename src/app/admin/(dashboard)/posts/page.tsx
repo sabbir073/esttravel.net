@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import { PostsTable } from "@/components/admin/PostsTable";
+import { PostSearch } from "@/components/admin/PostSearch";
 import { PlusCircle } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -44,6 +45,19 @@ export default async function AdminPostsPage({
           New Post
         </Link>
       </div>
+
+      <div className="mb-6">
+        <PostSearch />
+      </div>
+
+      {search && (
+        <p className="text-sm text-text-secondary mb-4">
+          Showing results for &ldquo;{search}&rdquo; &mdash;{" "}
+          <Link href="/admin/posts" className="text-primary hover:underline">
+            Clear search
+          </Link>
+        </p>
+      )}
 
       <PostsTable posts={posts} />
 
