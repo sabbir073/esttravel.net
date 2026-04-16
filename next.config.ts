@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "esttravel.net",
       },
+      {
+        protocol: "https",
+        hostname: "file.esttravel.net",
+      },
     ],
   },
 };

@@ -15,12 +15,17 @@ export default async function AdminPostsPage({
   const status = params.status;
   const search = params.search;
 
-  const { posts, total, totalPages } = await getAllPosts(
-    page,
-    50,
-    status,
-    search
-  );
+  let posts: import("@/lib/types").BlogPost[] = [];
+  let total = 0;
+  let totalPages = 0;
+  try {
+    const result = await getAllPosts(page, 50, status, search);
+    posts = result.posts;
+    total = result.total;
+    totalPages = result.totalPages;
+  } catch (err) {
+    console.error("Failed to load posts:", err);
+  }
 
   return (
     <div>

@@ -107,11 +107,27 @@ export async function getPublishedPosts(
     offset,
   ]);
 
-  const posts: BlogPost[] = [];
-  for (const row of rows) {
-    const post = mapPostRow(row);
-    post.categories = await getPostCategories(post.id);
-    posts.push(post);
+  const posts: BlogPost[] = rows.map(mapPostRow);
+
+  if (posts.length > 0) {
+    const postIds = posts.map((p) => p.id);
+    const placeholders = postIds.map(() => "?").join(",");
+    const [catRows] = await pool.execute<RowDataPacket[]>(
+      `SELECT pc.post_id, c.id, c.name, c.slug, c.description
+       FROM categories c
+       JOIN post_categories pc ON pc.category_id = c.id
+       WHERE pc.post_id IN (${placeholders})`,
+      postIds
+    );
+    const catMap = new Map<number, Category[]>();
+    for (const row of catRows) {
+      const cats = catMap.get(row.post_id) || [];
+      cats.push({ id: row.id, name: row.name, slug: row.slug, description: row.description });
+      catMap.set(row.post_id, cats);
+    }
+    for (const post of posts) {
+      post.categories = catMap.get(post.id) || [];
+    }
   }
 
   return { posts, totalPages: Math.ceil(total / limit), total };
@@ -151,12 +167,29 @@ export async function getRecentPublishedPosts(
     [limit]
   );
 
-  const posts: BlogPost[] = [];
-  for (const row of rows) {
-    const post = mapPostRow(row);
-    post.categories = await getPostCategories(post.id);
-    posts.push(post);
+  const posts: BlogPost[] = rows.map(mapPostRow);
+
+  if (posts.length > 0) {
+    const postIds = posts.map((p) => p.id);
+    const placeholders = postIds.map(() => "?").join(",");
+    const [catRows] = await pool.execute<RowDataPacket[]>(
+      `SELECT pc.post_id, c.id, c.name, c.slug, c.description
+       FROM categories c
+       JOIN post_categories pc ON pc.category_id = c.id
+       WHERE pc.post_id IN (${placeholders})`,
+      postIds
+    );
+    const catMap = new Map<number, Category[]>();
+    for (const row of catRows) {
+      const cats = catMap.get(row.post_id) || [];
+      cats.push({ id: row.id, name: row.name, slug: row.slug, description: row.description });
+      catMap.set(row.post_id, cats);
+    }
+    for (const post of posts) {
+      post.categories = catMap.get(post.id) || [];
+    }
   }
+
   return posts;
 }
 
@@ -191,12 +224,29 @@ export async function getRelatedPosts(
     rows.push(...extraRows);
   }
 
-  const posts: BlogPost[] = [];
-  for (const row of rows) {
-    const post = mapPostRow(row);
-    post.categories = await getPostCategories(post.id);
-    posts.push(post);
+  const posts: BlogPost[] = rows.map(mapPostRow);
+
+  if (posts.length > 0) {
+    const postIds = posts.map((p) => p.id);
+    const ph = postIds.map(() => "?").join(",");
+    const [catRows] = await pool.execute<RowDataPacket[]>(
+      `SELECT pc.post_id, c.id, c.name, c.slug, c.description
+       FROM categories c
+       JOIN post_categories pc ON pc.category_id = c.id
+       WHERE pc.post_id IN (${ph})`,
+      postIds
+    );
+    const catMap = new Map<number, Category[]>();
+    for (const row of catRows) {
+      const cats = catMap.get(row.post_id) || [];
+      cats.push({ id: row.id, name: row.name, slug: row.slug, description: row.description });
+      catMap.set(row.post_id, cats);
+    }
+    for (const post of posts) {
+      post.categories = catMap.get(post.id) || [];
+    }
   }
+
   return posts;
 }
 
@@ -244,11 +294,28 @@ export async function getAllPosts(
     [...params, limit, offset]
   );
 
-  const posts: BlogPost[] = [];
-  for (const row of rows) {
-    const post = mapPostRow(row);
-    post.categories = await getPostCategories(post.id);
-    posts.push(post);
+  const posts: BlogPost[] = rows.map(mapPostRow);
+
+  // Batch-load categories for all posts in one query instead of N+1
+  if (posts.length > 0) {
+    const postIds = posts.map((p) => p.id);
+    const placeholders = postIds.map(() => "?").join(",");
+    const [catRows] = await pool.execute<RowDataPacket[]>(
+      `SELECT pc.post_id, c.id, c.name, c.slug, c.description
+       FROM categories c
+       JOIN post_categories pc ON pc.category_id = c.id
+       WHERE pc.post_id IN (${placeholders})`,
+      postIds
+    );
+    const catMap = new Map<number, Category[]>();
+    for (const row of catRows) {
+      const cats = catMap.get(row.post_id) || [];
+      cats.push({ id: row.id, name: row.name, slug: row.slug, description: row.description });
+      catMap.set(row.post_id, cats);
+    }
+    for (const post of posts) {
+      post.categories = catMap.get(post.id) || [];
+    }
   }
 
   return { posts, total, totalPages: Math.ceil(total / limit) };
